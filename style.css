@@ -1,0 +1,17 @@
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tabs span.active {
+    font-weight: bold;
+    /* highlight active tab */
+}
+
+.tabs span {
+    cursor: pointer;
+    margin-right: 10px;
+}

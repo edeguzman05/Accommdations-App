@@ -1,0 +1,179 @@
+index.html
+
+ Link to manifest.json.
+
+ Include a <meta name="theme-color"> for PWA theme color.
+
+ Structure main UI:
+
+ Soundboard area (buttons for sounds).
+
+ Tokenboard area (token display + reset button).
+
+ Whiteboard area (<canvas> element).
+
+ TTS input (text box + “Speak” button).
+
+ Settings panel (button to open settings).
+
+ Load styles.css.
+
+ Load main app.js.
+
+ Add Settings Panel toggle button (visible to all).
+
+ Add PIN entry modal:
+
+ Simple numeric keypad or password input.
+
+ Hidden until teacher tries to open restricted settings.
+
+ Add Teacher Settings Panel (hidden by default):
+
+ PIN setup/change option.
+
+ Spam/disruption control settings (e.g., cooldown time between soundboard presses).
+
+ Distraction control (e.g., toggle to disable whiteboard, lock tokenboard reset).
+
+ Toggle visibility of certain features (soundboard vs tokenboard).
+
+styles.css
+
+ Define CSS variables for theme colors (so they can be changed dynamically).
+
+ Layout containers with accessibility in mind:
+
+ Large button styles for soundboard.
+
+ Tokenboard tokens (visual icons).
+
+ Whiteboard canvas styling.
+
+ Settings panel styles (sliders, dropdowns, toggles).
+
+ Add high-contrast and large-text modes.
+ 
+ Style for PIN modal (centered overlay, accessible contrast). 
+
+ Styles for disabled buttons (grayed-out or hidden when teacher disables them).
+
+ Highlight “teacher-only” areas with subtle color coding (so adults know what’s locked).
+
+app.js
+
+ Initialize app: Load saved settings from localStorage or database.
+
+ Soundboard logic:
+
+ Play sound when button is clicked.
+
+ Allow adding/removing sound buttons (if customization enabled).
+
+ TTS logic:
+
+ Use speechSynthesis to read text input.
+
+ Add options for voice, pitch, and speed.
+
+ Tokenboard logic:
+
+ Add token when clicked.
+
+ Reset token count when reward is given.
+
+ Allow customization of token style/goal number.
+
+ Whiteboard logic:
+
+ Draw on <canvas> with mouse/touch.
+
+ Clear/reset button.
+
+ Change pen color/size via settings.
+
+ Settings panel logic:
+
+ Theme color selector (update CSS variables).
+
+ Button size slider.
+
+ TTS speed/voice dropdown.
+
+ Save all preferences into localStorage (or sync to database).
+
+ Service Worker registration (register sw.js).
+
+ PIN System Logic:
+
+ Store hashed PIN (not plain text!) in localStorage or database.
+
+ Prompt teacher for PIN when opening restricted settings.
+
+ Allow limited PIN attempts before lockout.
+
+ Spam/Disruption Control:
+
+ Add cooldown timer for soundboard buttons (e.g., prevent spamming by forcing 1–2s delay between clicks).
+
+ Option to disable multiple TTS triggers in quick succession.
+
+ Distraction Control:
+
+ Teacher toggle to hide/show whiteboard.
+
+ Teacher toggle to lock tokenboard reset button.
+
+ Option to “Focus Mode” → hides everything except one chosen tool (e.g., only soundboard).
+
+ Teacher Settings Save:
+
+ Store teacher preferences (PIN, toggles, cooldown values) in localStorage or a secure database.
+
+ Apply settings automatically on app startup.
+
+manifest.json
+
+ Define app name + short_name.
+
+ Set start_url (probably index.html).
+
+ Choose display: "standalone" so it looks like a real app.
+
+ Set theme_color + background_color.
+
+ Define app icons (assets/icons/icon-192.png, assets/icons/icon-512.png).
+
+sw.js (Service Worker)
+
+ Install event:
+
+ Cache index.html, styles.css, app.js, manifest.json, icons, sounds, etc.
+
+ Activate event:
+
+ Clean up old caches if needed.
+
+ Fetch event:
+
+ Serve cached files when offline.
+
+ Fallback to network if online.
+
+ Cache teacher settings files (like app.js, PIN modal assets).
+
+ No special teacher logic here — but still ensure everything works offline.
+
+assets/
+
+ icons/ → app install icons (192px, 512px at minimum).
+
+ sounds/ → soundboard audio clips.
+
+ images/ → tokenboard stickers, optional UI graphics.
+
+ icons/: Could include a “lock” icon for PIN modal.
+
+ sounds/: Optional alert sound for wrong PIN or cooldown.
+
+ images/: Visuals for tokenboard/teacher-only icons.
