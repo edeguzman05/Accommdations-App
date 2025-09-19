@@ -9,53 +9,24 @@
 
 <body>
     <h1>GPAA</h1>
-
     <!-- Seperate Tags! -->
-
     <div class="container">
-        <div class="tabs">
-            <span data-tab-value="#tts-soundboard" class="active">TTS/Soundboard</span>
-            <span data-tab-value="#token-board">Token Board</span>
-            <span data-tab-value="#whiteboard">Whiteboard</span>
-            <span data-tab-value="#stenography-board">Stenography Board</span>
+        <div class="app">
+            <div class="sidebar">
+                <button data-tab="#soundboard">Soundboard</button>
+                <button data-tab="#tokenboard">Token Board</button>
+                <button data-tab="#whiteboard">White Board</button>
+                <button data-tab="#stenoboard">Stenography Board</button>
+                <button data-tab="#settings">⚙</button>
+                <button data-tab="#tts">TTS</button>
+            </div>
+            <div class="content" id="content">
+                <h2>Welcome</h2>
+                <p>Select a feature from the left menu.</p>
+            </div>
         </div>
-        <!-- Tab content -->
-
-        <div class="tab-content" id="tts-soundboard" data-tab-info>
-            <!-- Soundboard + TTS UI here -->
-        </div>
-
-        <div class="tab-content" id="token-board" data-tab-info>
-            <!-- Tokenboard UI here -->
-        </div>
-
-        <div class="tab-content" id="whiteboard" data-tab-info>
-            <!-- Whiteboard canvas here -->
-        </div>
-
-        <div class="tab-content" id="stenography-board" data-tab-info>
-            <!-- Optional stenography tool here -->
-        </div>
-        <script type="text/javascript">
-            const tabs = document.querySelectorAll('[data-tab-value]')
-            const tabContents = document.querySelectorAll('.tab-content')
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    // Remove active class from all tabs
-                    tabs.forEach(t => t.classList.remove('active'))
-                        // Add active class to clicked tab
-                    tab.classList.add('active')
-
-                    // Remove active class from all content divs
-                    tabContents.forEach(tc => tc.classList.remove('active'))
-
-                    // Add active class to target content div
-                    const target = document.querySelector(tab.dataset.tabValue)
-                    target.classList.add('active')
-                })
-            })
-        </script>
+    </div>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
