@@ -1,18 +1,15 @@
-const tabs = document.querySelectorAll('[data-tab]')
-const tabContents = document.querySelectorAll('.tab-content')
+function loadTab(tabId) {
+    // Hide all sections
+    document.querySelectorAll('.tab-content').forEach(section => {
+        section.classList.remove('active');
+    });
 
-tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        // Remove active class from all tabs
-        tabs.forEach(t => t.classList.remove('active'))
-            // Add active class to clicked tab
-        tab.classList.add('active')
+    // Show the one that matches the button pressed
+    document.getElementById(tabId).classList.add('active');
 
-        // Remove active class from all content divs
-        tabContents.forEach(tc => tc.classList.remove('active'))
+    document.querySelectorAll('.sidebar button').forEach(btn => {
+        btn.classList.remove('active');
+    });
 
-        // Add active class to target content div
-        const target = document.querySelector(tab.dataset.tabValue)
-        target.classList.add('active')
-    })
-})
+    document.target.classList.add('active');
+}

@@ -8,21 +8,54 @@
 </head>
 
 <body>
-    <h1>GPAA</h1>
     <!-- Seperate Tags! -->
     <div class="container">
         <div class="app">
             <div class="sidebar">
-                <button data-tab="#soundboard">Soundboard</button>
-                <button data-tab="#tokenboard">Token Board</button>
-                <button data-tab="#whiteboard">White Board</button>
-                <button data-tab="#stenoboard">Stenography Board</button>
-                <button data-tab="#settings">⚙</button>
-                <button data-tab="#tts">TTS</button>
+                <h1>GPAA</h1>
+
+                <button onclick="loadTab('soundboard')">Soundboard</button>
+                <button onclick="loadTab('tokenboard')">Token Board</button>
+                <button onclick="loadTab('whiteboard')">White Board</button>
+                <button onclick="loadTab('stenoboard')">Stenography Board</button>
+                <button onclick="loadTab('settings')">⚙</button>
+                <button onclick="loadTab('tts')">TTS</button>
+
             </div>
-            <div class="content" id="content">
+            <div class="content" id="content active">
                 <h2>Welcome</h2>
                 <p>Select a feature from the left menu.</p>
+
+                <div id="soundboard" class="tab-content">
+                    <h2>Soundboard</h2>
+                    <p>This is where the Soundboard feature will go.</p>
+                </div>
+
+                <div id="tokenboard" class="tab-content">
+                    <h2>Tokenboard</h2>
+                    <p>This is where the Token Board feature will go.</p>
+                </div>
+
+                <div id="whiteboard" class="tab-content">
+                    <h2>Whiteboard</h2>
+                    <p>This is where the Whiteboard feature will go.</p>
+                </div>
+
+                <div id="stenoboard" class="tab-content">
+                    <h2>Stenography Board</h2>
+                    <p>This is where the Stenography Board feature will go.</p>
+                </div>
+
+                <div id="settings" class="tab-content">
+                    <h2>Settings</h2>
+                    <p>This is where the Settings feature will go.</p>
+                </div>
+
+                <div id="tts" class="tab-content">
+                    <h2>Text-To-Speech</h2>
+                    <p>This is where the Text-to-speech feature will go.</p>
+                </div>
+
             </div>
         </div>
     </div>
