@@ -14,17 +14,21 @@
             <div class="sidebar">
                 <h1>GPAA</h1>
 
-                <button onclick="loadTab('soundboard')">Soundboard</button>
-                <button onclick="loadTab('tokenboard')">Token Board</button>
-                <button onclick="loadTab('whiteboard')">White Board</button>
-                <button onclick="loadTab('stenoboard')">Stenography Board</button>
-                <button onclick="loadTab('settings')">⚙</button>
-                <button onclick="loadTab('tts')">TTS</button>
+                <button onclick="loadTab(event,'soundboard')">Soundboard</button>
+                <button onclick="loadTab(event,'tokenboard')">Token Board</button>
+                <button onclick="loadTab(event,'whiteboard')">White Board</button>
+                <button onclick="loadTab(event,'stenoboard')">Stenography Board</button>
+                <button onclick="loadTab(event,'settings')">⚙</button>
+                <button onclick="loadTab(event,'tts')">TTS</button>
 
             </div>
-            <div class="content" id="content active">
-                <h2>Welcome</h2>
-                <p>Select a feature from the left menu.</p>
+            <div class="content">
+
+
+                <div id="welcome" class="tab-content active">
+                    <h2>Welcome</h2>
+                    <p>Select a feature from the left menu.</p>
+                </div>
 
                 <div id="soundboard" class="tab-content">
                     <h2>Soundboard</h2>
@@ -59,7 +63,7 @@
             </div>
         </div>
     </div>
-    <script src="js/main.js"></script>
+    <script src="javascripts/main.js"></script>
 </body>
 
 </html>
