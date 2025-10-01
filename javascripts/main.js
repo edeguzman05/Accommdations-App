@@ -16,3 +16,11 @@ function loadTab(event, tabId) {
 
     event.currentTarget.classList.add('active');
 }
+
+let currentSticker = null;
+
+// Set reward text
+function setReward() {
+    const rewardInput = document.getElementById("reward-input").value;
+    document.getElementById("reward-text").textContent = rewardInput || "________";
+}

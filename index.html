@@ -24,7 +24,6 @@
             </div>
             <div class="content">
 
-
                 <div id="welcome" class="tab-content active">
                     <h2>Welcome</h2>
                     <p>Select a feature from the left menu.</p>
@@ -37,7 +36,23 @@
 
                 <div id="tokenboard" class="tab-content">
                     <h2>Tokenboard</h2>
-                    <p>This is where the Token Board feature will go.</p>
+                    <div class="tokenboard">
+                        <h3>I am working for this:
+                            <span id="reward-text">  </span>
+                        </h3>
+
+                        <input type="text" id="reward-input" placeholder="Enter Reward here" />
+                        <button onclick="setReward()">Set Reward </button>
+
+                        <div class="sticker-slots">
+                            <div class="slot" data-slot="1"></div>
+                            <div class="slot" data-slot="2"></div>
+                            <div class="slot" data-slot="3"></div>
+                            <div class="slot" data-slot="4"></div>
+                            <div class="slot" data-slot="5"></div>
+
+                        </div>
+                    </div>
                 </div>
 
                 <div id="whiteboard" class="tab-content">

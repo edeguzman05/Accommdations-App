@@ -69,3 +69,35 @@ body {
 .sidebar button.active {
     background: #2ecc71;
 }
+
+.tokenboard {
+    margin-top: 20px;
+}
+
+.sticker-slots {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.slot {
+    width: 80px;
+    height: 80px;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    cursor: pointer;
+}
+
+.slot img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.sticker-picker img {
+    width: 60px;
+    cursor: pointer;
+    margin: 5px;
+}
