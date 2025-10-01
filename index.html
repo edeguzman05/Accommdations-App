@@ -44,14 +44,22 @@
                         <input type="text" id="reward-input" placeholder="Enter Reward here" />
                         <button onclick="setReward()">Set Reward </button>
 
-                        <div class="sticker-slots">
-                            <div class="slot" data-slot="1"></div>
-                            <div class="slot" data-slot="2"></div>
-                            <div class="slot" data-slot="3"></div>
-                            <div class="slot" data-slot="4"></div>
-                            <div class="slot" data-slot="5"></div>
-
+                        <div class="token-slots">
+                            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="1"></div>
+                            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="2"></div>
+                            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="3"></div>
+                            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="4"></div>
+                            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="5"></div>
                         </div>
+
+
+
+                        <div class="stickers">
+                            <h4>Available Stickers: </h4>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAb3Lu5ZFiLqd5OXbzQUISUewqU3TpywEw_Q&s" draggable="true" ondragstart="drag(event)" id="sticker1">
+                        </div>
+
+                        <p id="completion-message" class="completion-message"></p>
                     </div>
                 </div>
 
