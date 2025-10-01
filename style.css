@@ -74,7 +74,7 @@ body {
     margin-top: 20px;
 }
 
-.sticker-slots {
+.token-slots {
     display: flex;
     gap: 10px;
     margin: 20px 0;
@@ -88,7 +88,6 @@ body {
     align-items: center;
     justify-content: center;
     background: white;
-    cursor: pointer;
 }
 
 .slot img {
@@ -96,8 +95,49 @@ body {
     max-height: 100%;
 }
 
-.sticker-picker img {
+.slot.drag-over {
+    border-color: #000;
+    background-color: #f9f9f9;
+}
+
+.sticker {
+    margin-top: 20px;
+}
+
+.sticker img {
     width: 60px;
-    cursor: pointer;
+    cursor: grab;
     margin: 5px;
+    border: 2px;
+    border-radius: 8px;
+}
+
+.completion-message {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+}
+
+.completion-message span {
+    display: inline-block;
+    opacity: 0;
+    animation: bounce-in 1s forwards;
+    margin-right: 2px;
+    text-align: center;
+}
+
+@keyframes bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.2) translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
