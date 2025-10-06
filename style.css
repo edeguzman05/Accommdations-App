@@ -141,3 +141,40 @@ body {
         transform: scale(1) translateY(0);
     }
 }
+
+/*
+    This section is what I am adding on for the whiteboard to see 
+    if I can get this working at all. I will first be adding a rudimentary implementation
+    for the whiteboard then later adding more and more features
+*/
+
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.toolbar {
+  position: relative;
+  top: 10px;
+  left: 0px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#canvas {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  outline: 8px rgba(0,0,0,1);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 0px;
+  
+}

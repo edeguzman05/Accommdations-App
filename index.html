@@ -66,6 +66,22 @@
                 <div id="whiteboard" class="tab-content">
                     <h2>Whiteboard</h2>
                     <p>This is where the Whiteboard feature will go.</p>
+
+                    <!-- this is my sad attempt at a whiteboard -->
+                    <div class="toolbar">
+                        <span>Pen Color: </span>
+                        <input type="color" id="colorPicker" value="#000000">
+                        <span>Size: </span>
+                        <input type="number" id="penSize" min="0" max="100"t>
+                        <span>Opacity: </span>
+                        <input type="range" id="opacity" min="0" max="1" step="0.01">
+                        <p></p>
+                        <button id="pen">🖊️</button>
+                        <button id="eraser">🧼</button>
+                        <button id="clearBtn">Clear</button>
+                    </div>
+                    <canvas id="drawingCanvas"></canvas>
+
                 </div>
 
                 <div id="stenoboard" class="tab-content">
