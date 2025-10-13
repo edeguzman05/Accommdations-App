@@ -41,7 +41,9 @@
                         </h3>
 
                         <input type="text" id="reward-input" placeholder="Enter Reward here" />
-                        <button onclick="setReward()">Set Reward </button>
+                        <button onclick="setReward()">Set Reward</button>
+
+                        <button onclick="resetBoard()">Reset</button>
 
                         <div class="token-slots">
                             <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="1"></div>
@@ -51,11 +53,22 @@
                             <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="5"></div>
                         </div>
 
+                        <div class="customization">
+                            <h4>Customize Your Board:</h4>
 
+                            <div class="custom-upload">
+                                <label for="sticker-upload">Upload Stickers:</label>
+                                <input type="file" id="sticker-upload" accept="image/*" multiple>
+                            </div>
+
+                            <div class="custom-upload">
+                                <label for="sound-upload">Upload Reward Sound:</label>
+                                <input type="file" id="sound-upload" accept="audio/*">
+                            </div>
+                        </div>
 
                         <div class="stickers">
                             <h4>Available Stickers: </h4>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAb3Lu5ZFiLqd5OXbzQUISUewqU3TpywEw_Q&s" draggable="true" ondragstart="drag(event)" id="sticker1">
                         </div>
 
                         <p id="completion-message" class="completion-message"></p>
@@ -64,7 +77,22 @@
 
                 <div id="whiteboard" class="tab-content">
                     <h2>Whiteboard</h2>
-                    <p>This is where the Whiteboard feature will go.</p>
+
+                    <!-- this is my sad attempt at a whiteboard -->
+                    <div class="toolbar">
+                        <span>Pen Color: </span>
+                        <input type="color" id="colorPicker" value="#000000">
+                        <span>Size: </span>
+                        <input type="number" id="penSize" min="0" max="100" t>
+                        <span>Opacity: </span>
+                        <input type="range" id="opacity" min="0" max="1" step="0.01">
+                        <p></p>
+                        <button id="pen">🖊️</button>
+                        <button id="eraser">🧼</button>
+                        <button id="clearBtn">Clear</button>
+                    </div>
+                    <canvas id="drawingCanvas"></canvas>
+
                 </div>
 
                 <div id="settings" class="tab-content">
@@ -81,6 +109,8 @@
         </div>
     </div>
     <script src="javascripts/main.js"></script>
+    <script src="javascripts/tokenboard.js"></script>
+    <script src="javascripts/whiteboard.js"></script>
 </body>
 
 </html>

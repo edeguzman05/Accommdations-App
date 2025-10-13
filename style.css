@@ -100,16 +100,17 @@ body {
     background-color: #f9f9f9;
 }
 
-.sticker {
-    margin-top: 20px;
+.stickers img {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    cursor: grab;
+    border-radius: 8px;
+    transition: transform 0.2s;
 }
 
-.sticker img {
-    width: 60px;
-    cursor: grab;
-    margin: 5px;
-    border: 2px;
-    border-radius: 8px;
+.stickers img:hover {
+    transform: scale(1.1);
 }
 
 .completion-message {
@@ -140,4 +141,27 @@ body {
         opacity: 1;
         transform: scale(1) translateY(0);
     }
+}
+
+.customization {
+    margin-top: 25px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.custom-upload {
+    margin: 10px 0;
+}
+
+.custom-upload label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+input[type="file"] {
+    border: none;
+    background: #fff;
+    padding: 5px;
+    cursor: pointer;
 }
