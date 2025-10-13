@@ -100,16 +100,17 @@ body {
     background-color: #f9f9f9;
 }
 
-.sticker {
-    margin-top: 20px;
+.stickers img {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    cursor: grab;
+    border-radius: 8px;
+    transition: transform 0.2s;
 }
 
-.sticker img {
-    width: 60px;
-    cursor: grab;
-    margin: 5px;
-    border: 2px;
-    border-radius: 8px;
+.stickers img:hover {
+    transform: scale(1.1);
 }
 
 .completion-message {
@@ -142,39 +143,25 @@ body {
     }
 }
 
-/*
-    This section is what I am adding on for the whiteboard to see 
-    if I can get this working at all. I will first be adding a rudimentary implementation
-    for the whiteboard then later adding more and more features
-*/
-
-
-body {
-  margin: 0;
-  overflow: hidden;
-  font-family: sans-serif;
+.customization {
+    margin-top: 25px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 8px;
 }
 
-.toolbar {
-  position: relative;
-  top: 10px;
-  left: 0px;
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.custom-upload {
+    margin: 10px 0;
 }
 
-#canvas {
-  display: block;
-  position: absolute;
-  top: 10px;
-  left: 0;
-  outline: 8px rgba(0,0,0,1);
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 10px;
-  border-radius: 0px;
-  
+.custom-upload label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+input[type="file"] {
+    border: none;
+    background: #fff;
+    padding: 5px;
+    cursor: pointer;
 }

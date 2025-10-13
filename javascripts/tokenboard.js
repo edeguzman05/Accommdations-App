@@ -1,0 +1,120 @@
+let customSound = null;
+let currentSticker = null;
+
+// Set reward text
+function setReward() {
+    const rewardInput = document.getElementById("reward-input").value;
+    document.getElementById("reward-text").textContent = rewardInput || "________";
+    document.getElementById("completion-message").textContent = "";
+}
+
+function allowDrop(event) {
+    event.preventDefault();
+    event.currentTarget.classList.add("drag-over");
+}
+
+function drag(event) {
+    event.dataTransfer.setData("stickerId", event.target.id);
+}
+
+function drop(event) {
+    event.preventDefault();
+    let stickerId = event.dataTransfer.getData("stickerId");
+    let sticker = document.getElementById(stickerId).cloneNode(true);
+    sticker.removeAttribute("id");
+
+    sticker.addEventListener("click", () => {
+        sticker.parentNode.innerHTML = "";
+        document.getElementById("completion-message").textContent = "";
+    });
+
+    let slot = event.currentTarget;
+    slot.innerHTML = "";
+    slot.appendChild(sticker);
+    slot.classList.remove("drag-over")
+
+    checkCompletion();
+
+}
+
+function checkCompletion() {
+    const slots = document.querySelectorAll('.slot');
+    let allFilled = true;
+
+    slots.forEach(slot => {
+        if (slot.children.length === 0) {
+            allFilled = false;
+        }
+    });
+
+    if (allFilled) {
+        const reward = document.getElementById("reward-text").textContent || "your reward";
+        //alert(`Congratulations! You earned: ${reward}`); <- Alerts through a web notification like errors
+        showCompletionMessage(`Congratulations! You earned: ${reward}`);
+        playSuccessSound();
+    }
+}
+
+
+function playSuccessSound() {
+    const audio = new Audio(customSound || "sounds/success.mp3");
+    audio.play().catch(e => console.warn("Audio play failed:", e));
+}
+
+function showCompletionMessage(text) {
+    const messageEl = document.getElementById("completion-message");
+    messageEl.innerHTML = ""; // clear previous message
+
+    // Wrap each character in a span
+    for (let i = 0; i < text.length; i++) {
+        const span = document.createElement("span");
+        span.textContent = text[i];
+        span.style.animationDelay = `${i * 0.1}s`; // stagger each letter
+        messageEl.appendChild(span);
+    }
+}
+
+//Reset Button
+function resetBoard() {
+    document.querySelectorAll('.slot').forEach(slot => slot.innerHTML = "");
+    document.getElementById('completion-message').textContent = "";
+}
+
+function createSticker(src, index) {
+    const stickers = document.querySelector('.stickers');
+    const img = document.createElement("img");
+    img.src = src;
+    img.id = `sticker${index + 1}`;
+    img.draggable = true;
+    img.ondragstart = drag;
+    stickers.appendChild(img);
+}
+
+function setupUploads() {
+    // Sticker uploader
+    const stickerUpload = document.getElementById('sticker-upload');
+    stickerUpload.addEventListener('change', (event) => {
+        const files = event.target.files;
+        for (const file of files) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                createSticker(e.target.result, Date.now());
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Sound uploader
+    const soundUpload = document.getElementById('sound-upload');
+    soundUpload.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            customSound = URL.createObjectURL(file);
+            alert("✅ Custom reward sound uploaded!");
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    setupUploads();
+});
