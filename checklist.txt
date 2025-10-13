@@ -2,13 +2,13 @@ index.html
 
  Link to manifest.json.
 
- Include a <meta name="theme-color"> for PWA theme color.
+ Include a <meta name="theme-color"> for PWA theme color. 
 
- Structure main UI:
+ Structure main UI: 
 
  Soundboard area (buttons for sounds).
 
- Tokenboard area (token display + reset button).
+ Tokenboard area (token display + reset button).  <= Mostly done, customization is my next step
 
  Whiteboard area (<canvas> element).
 
@@ -16,7 +16,6 @@ index.html
 
  Settings panel (button to open settings).
 
- Load styles.css.
 
  Load main app.js.
 
@@ -46,8 +45,6 @@ styles.css
 
  Large button styles for soundboard.
 
- Tokenboard tokens (visual icons).
-
  Whiteboard canvas styling.
 
  Settings panel styles (sliders, dropdowns, toggles).
@@ -75,12 +72,6 @@ app.js
  Use speechSynthesis to read text input.
 
  Add options for voice, pitch, and speed.
-
- Tokenboard logic:
-
- Add token when clicked.
-
- Reset token count when reward is given.
 
  Allow customization of token style/goal number.
 
