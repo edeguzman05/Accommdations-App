@@ -99,6 +99,7 @@ function setupUploads() {
             const reader = new FileReader();
             reader.onload = (e) => {
                 createSticker(e.target.result, Date.now());
+                saveStickerstoStorage();
             };
             reader.readAsDataURL(file);
         }
@@ -110,11 +111,29 @@ function setupUploads() {
         const file = event.target.files[0];
         if (file) {
             customSound = URL.createObjectURL(file);
-            alert("✅ Custom reward sound uploaded!");
+            alert("Custom reward sound uploaded!");
         }
     });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     setupUploads();
+    loadStickersFromStorage();
 });
+
+function loadStickersFromStorage() {
+    const saved = localStorage.getItem("customStickers");
+    if (!saved) return;
+
+    const stickerSRCS = JSON.parse(saved);
+    stickerSRCS.forEach((src, i) => {
+        createSticker(src, i);
+    });
+
+}
+
+function saveStickerstoStorage() {
+    const stickerImgs = document.querySelectorAll('.stickers img');
+    const stickerSRCS = Array.from(stickerImgs).map(img => img.src);
+    localStorage.setItem("customStickers", JSON.stringify(stickerSRCS));
+}
