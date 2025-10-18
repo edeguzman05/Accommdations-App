@@ -1,4 +1,3 @@
-let customSound = null;
 let currentSticker = null;
 
 // Set reward text
@@ -82,12 +81,39 @@ function resetBoard() {
 
 function createSticker(src, index) {
     const stickers = document.querySelector('.stickers');
+
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("sticker-wrapper");
+    wrapper.style.position = "relative";
+    wrapper.style.display = "inline-block";
+
     const img = document.createElement("img");
     img.src = src;
     img.id = `sticker${index + 1}`;
     img.draggable = true;
     img.ondragstart = drag;
-    stickers.appendChild(img);
+
+    const del = document.createElement("button");
+    del.textContent = "❌";
+    del.classList.add("delete-sticker-btn");
+    del.style.position = "absolute";
+    del.style.top = 0;
+    del.style.right = 0;
+    del.style.background = "rgba(0,0,0,0.5)";
+    del.style.color = "white";
+    del.style.border = "none";
+    del.style.borderRadius = "50%"
+    del.style.cursor = "pointer";
+
+
+    del.addEventListener("click", () => {
+        wrapper.remove();
+        saveStickerstoStorage();
+    });
+
+    wrapper.appendChild(img);
+    wrapper.appendChild(del);
+    stickers.appendChild(wrapper);
 }
 
 function setupUploads() {
@@ -102,16 +128,6 @@ function setupUploads() {
                 saveStickerstoStorage();
             };
             reader.readAsDataURL(file);
-        }
-    });
-
-    // Sound uploader
-    const soundUpload = document.getElementById('sound-upload');
-    soundUpload.addEventListener('change', (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            customSound = URL.createObjectURL(file);
-            alert("Custom reward sound uploaded!");
         }
     });
 }
