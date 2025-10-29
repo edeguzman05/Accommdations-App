@@ -3,8 +3,13 @@ let currentSticker = null;
 // Set reward text
 function setReward() {
     const rewardInput = document.getElementById("reward-input").value;
+    const soundSelect = document.getElementById("reward-sound-select");
+    const selectedSound = soundSelect ? soundSelect.value : "";
+
     document.getElementById("reward-text").textContent = rewardInput || "________";
     document.getElementById("completion-message").textContent = "";
+
+    localStorage.setItem("selectedRewardSound", selectedSound);
 }
 
 function allowDrop(event) {
@@ -54,9 +59,18 @@ function checkCompletion() {
     }
 }
 
-
 function playSuccessSound() {
-    const audio = new Audio(customSound || "sounds/success.mp3");
+    const selectedSound = localStorage.getItem("selectedRewardSound");
+    let soundToPlay = null;
+    if (selectedSound && availableSounds[selectedSound]) {
+        soundToPlay = availableSounds[selectedSound];
+    } else if (customSound) {
+        soundToPlay = customSound;
+    }
+
+    if (!soundToPlay) return;
+
+    const audio = new Audio(soundToPlay);
     audio.play().catch(e => console.warn("Audio play failed:", e));
 }
 

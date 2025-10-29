@@ -30,7 +30,15 @@
 
                 <div id="soundboard" class="tab-content">
                     <h2>Soundboard</h2>
-                    <p>Upload your sounds!</p>
+                    <p> <br>Upload your sounds!</p>
+
+                    <div class="sound-upload">
+                        <label for="sound-upload">Upload Sounds:</label>
+                        <input type="file" id="sound-upload" accept="audio/*" multiple>
+                    </div>
+
+                    <div id="sound-buttons" class="sound-buttons"></div>
+
                 </div>
 
                 <div id="tokenboard" class="tab-content">
@@ -68,6 +76,11 @@
 
                         <p id="completion-message" class="completion-message"></p>
                     </div>
+
+                    <label for="reward-sound-select">Select Sound:</label>
+                    <select id="reward-sound-select">
+                        <option value="">None</option>
+                    </select>
                 </div>
 
                 <div id="whiteboard" class="tab-content">
@@ -106,6 +119,7 @@
     <script src="javascripts/main.js"></script>
     <script src="javascripts/tokenboard.js"></script>
     <script src="javascripts/whiteboard.js"></script>
+    <script src="javascripts/soundboard.js"></script>
 </body>
 
 </html>
