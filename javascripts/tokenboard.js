@@ -4,7 +4,7 @@ let currentSticker = null;
 function setReward() {
     const rewardInput = document.getElementById("reward-input").value;
     const soundSelect = document.getElementById("reward-sound-select");
-    const selectedSound = soundSelect ? soundSelect.value : "";
+    const selectedSound = soundSelect ? soundSelect.value : localStorage.getItem("selectedRewardSound");;
 
     document.getElementById("reward-text").textContent = rewardInput || "________";
     document.getElementById("completion-message").textContent = "";
@@ -62,8 +62,17 @@ function checkCompletion() {
 function playSuccessSound() {
     const selectedSound = localStorage.getItem("selectedRewardSound");
     let soundToPlay = null;
-    if (selectedSound && availableSounds[selectedSound]) {
-        soundToPlay = availableSounds[selectedSound];
+
+    if (selectedSound) {
+        if (availableSounds[selectedSound]) {
+            soundToPlay = availableSounds[selectedSound];
+        } else {
+            const saved = JSON.parse(localStorage.getItem("customSounds") || "[]");
+            const found = saved.find(s => s.name === selectedSound);
+            if (found) {
+                soundToPlay = found.src;
+            }
+        }
     } else if (customSound) {
         soundToPlay = customSound;
     }
@@ -149,6 +158,13 @@ function setupUploads() {
 document.addEventListener("DOMContentLoaded", () => {
     setupUploads();
     loadStickersFromStorage();
+
+    const soundSelect = document.getElementById("reward-sound-select");
+    if (soundSelect) {
+        soundSelect.addEventListener("change", (e) => {
+            localStorage.setItem("selectedRewardSound", e.target.value);
+        });
+    }
 });
 
 function loadStickersFromStorage() {
