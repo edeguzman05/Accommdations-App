@@ -110,7 +110,15 @@
 
                 <div id="tts" class="tab-content">
                     <h2>Text-To-Speech</h2>
-                    <p>This is where the Text-to-speech feature will go.</p>
+                    <p>Type something and press speak!</p>
+
+                    <textarea id="ttsText" , rows=3, placeholder="Enter text to speak."></textarea><br>
+
+                    <label for="voiceSelect">Voice:</label>
+                    <select id="voiceSelect"></select><br><br>
+
+                    <button id="speakButton">Speak</button>
+                    <button id="stopButton">Stop</button>
                 </div>
 
             </div>
@@ -120,6 +128,7 @@
     <script src="javascripts/tokenboard.js"></script>
     <script src="javascripts/whiteboard.js"></script>
     <script src="javascripts/soundboard.js"></script>
+    <script src="javascripts/TTS.js"></script>
 </body>
 
 </html>
