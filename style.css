@@ -9,29 +9,33 @@
     --sidebarButtonFontColor: #ffffff;
 }
 
-#welcome-wrapper {
-    transform: scale(var(--ui-scale));
-    transform-origin: top left;
-}
-#soundboard-wrapper {
-    transform: scale(var(--ui-scale));
-    transform-origin: top left;
-}
-#tokenboard-wrapper {
-    transform: scale(var(--ui-scale));
-    transform-origin: top left;
-}
-#settings-wrapper {
-    transform: scale(var(--ui-scale));
-    transform-origin: top left;
-}
-#tts-wrapper {
+#app-container {
     transform: scale(var(--ui-scale));
     transform-origin: top left;
 }
 
-#tab-wrapper {
-    transform: scale(var(--sidebar-scale));
+#welcome-wrapper {
+    transform: scale(var(--ui-scale));
+    transform-origin: top left;
+}
+
+#soundboard-wrapper {
+    transform: scale(var(--ui-scale));
+    transform-origin: top left;
+}
+
+#tokenboard-wrapper {
+    transform: scale(var(--ui-scale));
+    transform-origin: top left;
+}
+
+#settings-wrapper {
+    transform: scale(var(--ui-scale));
+    transform-origin: top left;
+}
+
+#tts-wrapper {
+    transform: scale(var(--ui-scale));
     transform-origin: top left;
 }
 
@@ -68,6 +72,9 @@ body {
     flex-direction: column;
     align-items: center;
     color: var(--fontColor);
+    transform: scale(var(--sidebar-scale, 1));
+    transform-origin: top left;
+    transition: transform 0.2s ease;
 }
 
 .content {

@@ -5,56 +5,60 @@ function setColor(property, color) {
 
 //debug ui scale
 function setUiScale(property, value) {
-  const scale = Math.max(0.5, Math.min(value, 3)); 
-  document.documentElement.style.setProperty(property, scale);
+    const scale = Math.max(0.5, Math.min(value, 3));
+    document.documentElement.style.setProperty(property, scale.toString());
 }
 
 // Apply the Settings Selected
 document.addEventListener("DOMContentLoaded", () => {
-    const uiSlider = document.getElementById("ui-scale-slider");
-    const tabSlider = document.getElementById("tab-scale-slider");
+    const uiSlider = document.getElementById("ui-scale-slider-s");
+    const tabSlider = document.getElementById("sidebar-scale-slider-s");
     const fontColor = document.getElementById("fontColor-s");
     const bgColor = document.getElementById("backgroundColor-s");
     const sbColor = document.getElementById("sidebarColor-s");
     const sbBtnColor = document.getElementById("sidebarButtonColor-s");
     const sbBtnCorrectColor = document.getElementById("sidebarButtonCorrectColor-s");
     const sbBtnFontColor = document.getElementById("sidebarButtonFontColor-s");
+    tabSlider.addEventListener("input", e => console.log("Moved!", e.target.value));
+
     if (uiSlider) {
         uiSlider.addEventListener("input", () => {
-           setUiScale("--ui-scale",uiSlider.value);
+            console.log("Slider value:", uiSlider.value);
+            setUiScale("--ui-scale", uiSlider.value);
         });
     }
     if (tabSlider) {
         tabSlider.addEventListener("input", () => {
-            setUiScale("--sidebar-scale",tabSlider.value);
+            console.log("Slider value:", tabSlider.value);
+            setUiScale("--sidebar-scale", tabSlider.value);
         });
     }
-    if(fontColor){
+    if (fontColor) {
         fontColor.addEventListener("input", () => {
             setColor("--fontColor", fontColor.value);
         });
     }
-    if(bgColor){
+    if (bgColor) {
         bgColor.addEventListener("input", () => {
             setColor("--backgroundColor", bgColor.value);
         });
     }
-    if(sbColor){
+    if (sbColor) {
         sbColor.addEventListener("input", () => {
             setColor("--sidebarColor", sbColor.value);
         });
     }
-    if(sbBtnFontColor){
+    if (sbBtnFontColor) {
         sbBtnFontColor.addEventListener("input", () => {
             setColor("--sidebarButtonFontColor", sbBtnFontColor.value);
         });
     }
-    if(sbBtnCorrectColor){
+    if (sbBtnCorrectColor) {
         sbBtnCorrectColor.addEventListener("input", () => {
             setColor("--sidebarButtonCorrectColor", sbBtnCorrectColor.value);
         });
     }
-    if(sbBtnColor){
+    if (sbBtnColor) {
         sbBtnColor.addEventListener("input", () => {
             setColor("--sidebarButtonColor", sbBtnColor.value);
 

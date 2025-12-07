@@ -2,6 +2,14 @@
 
 Welcome to our Special Education General Accommodation App! 
 
+
+# Diagrams
+
+## Use Case Diagram
+
+## UML CRC Diagram
+
+
 # Text-to-Speech (TTS)
 
 # Token Board
