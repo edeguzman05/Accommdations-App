@@ -11,81 +11,84 @@
     <!-- Seperate Tags! -->
     <div class="container">
         <div class="app">
-            <div class="sidebar">
-                <h1>GPAA</h1>
+            <div id="tab-wrapper">
+                <div class="sidebar">
+                    <h1>GPAA</h1>
 
-                <button onclick="loadTab(event,'soundboard')">Soundboard</button>
-                <button onclick="loadTab(event,'tokenboard')">Token Board</button>
-                <button onclick="loadTab(event,'whiteboard')">White Board</button>
-                <button onclick="loadTab(event,'settings')">⚙</button>
-                <button onclick="loadTab(event,'tts')">TTS</button>
+                    <button onclick="loadTab(event,'soundboard')">Soundboard</button>
+                    <button onclick="loadTab(event,'tokenboard')">Token Board</button>
+                    <button onclick="loadTab(event,'whiteboard')">White Board</button>
+                    <button onclick="loadTab(event,'settings')">⚙</button>
+                    <button onclick="loadTab(event,'tts')">TTS</button>
 
+                </div>
             </div>
             <div class="content">
-
-                <div id="welcome" class="tab-content active">
-                    <h2>Welcome</h2>
-                    <p>Select a feature from the left menu.</p>
-                </div>
-
-                <div id="soundboard" class="tab-content">
-                    <h2>Soundboard</h2>
-                    <p> <br>Upload your sounds!</p>
-
-                    <div class="sound-upload">
-                        <label for="sound-upload">Upload Sounds:</label>
-                        <input type="file" id="sound-upload" accept="audio/*" multiple>
+                <div id="welcome-wrapper">
+                    <div id="welcome" class="tab-content active">
+                        <h2>Welcome</h2>
+                        <p>Select a feature from the left menu.</p>
                     </div>
-
-                    <div id="sound-buttons" class="sound-buttons"></div>
-
                 </div>
+                <div id="soundboard-wrapper">
+                    <div id="soundboard" class="tab-content">
+                        <h2>Soundboard</h2>
+                        <p> <br>Upload your sounds!</p>
 
-                <div id="tokenboard" class="tab-content">
-                    <h2>Tokenboard</h2>
-                    <div class="tokenboard">
-                        <h3>I am working for this:
-                            <span id="reward-text">  </span>
-                        </h3>
-
-                        <input type="text" id="reward-input" placeholder="Enter Reward here" />
-                        <button onclick="setReward()">Set Reward</button>
-
-                        <button onclick="resetBoard()">Reset</button>
-
-                        <div class="token-slots">
-                            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="1"></div>
-                            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="2"></div>
-                            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="3"></div>
-                            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="4"></div>
-                            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="5"></div>
+                        <div class="sound-upload">
+                            <label for="sound-upload">Upload Sounds:</label>
+                            <input type="file" id="sound-upload" accept="audio/*" multiple>
                         </div>
 
-                        <div class="customization">
-                            <h4>Customize Your Board:</h4>
+                        <div id="sound-buttons" class="sound-buttons"></div>
 
-                            <div class="custom-upload">
-                                <label for="sticker-upload">Upload Stickers:</label>
-                                <input type="file" id="sticker-upload" accept="image/*" multiple>
+                    </div>
+                </div>
+                <div id="tokenboard-wrapper">
+                    <div id="tokenboard" class="tab-content">
+                        <h2>Tokenboard</h2>
+                        <div class="tokenboard">
+                            <h3>I am working for this:
+                                <span id="reward-text">  </span>
+                            </h3>
+
+                            <input type="text" id="reward-input" placeholder="Enter Reward here" />
+                            <button onclick="setReward()">Set Reward</button>
+
+                            <button onclick="resetBoard()">Reset</button>
+
+                            <div class="token-slots">
+                                <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="1"></div>
+                                <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="2"></div>
+                                <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="3"></div>
+                                <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="4"></div>
+                                <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" data-slot="5"></div>
                             </div>
+
+                            <div class="customization">
+                                <h4>Customize Your Board:</h4>
+
+                                <div class="custom-upload">
+                                    <label for="sticker-upload">Upload Stickers:</label>
+                                    <input type="file" id="sticker-upload" accept="image/*" multiple>
+                                </div>
+                            </div>
+
+                            <div class="stickers">
+                                <h4>Available Stickers: </h4>
+                            </div>
+
+                            <p id="completion-message" class="completion-message"></p>
                         </div>
 
-                        <div class="stickers">
-                            <h4>Available Stickers: </h4>
-                        </div>
-
-                        <p id="completion-message" class="completion-message"></p>
+                        <label for="reward-sound-select">Select Sound:</label>
+                        <select id="reward-sound-select">
+                            <option value="">None</option>
+                        </select>
                     </div>
-
-                    <label for="reward-sound-select">Select Sound:</label>
-                    <select id="reward-sound-select">
-                        <option value="">None</option>
-                    </select>
                 </div>
-
                 <div id="whiteboard" class="tab-content">
                     <h2>Whiteboard</h2>
-
                     <!-- this is my sad attempt at a whiteboard -->
                     <div class="toolbar">
                         <span>Pen Color: </span>
@@ -100,27 +103,59 @@
                         <button id="clearBtn">Clear</button>
                     </div>
                     <canvas id="drawingCanvas"></canvas>
-
                 </div>
-
-                <div id="settings" class="tab-content">
-                    <h2>Settings</h2>
-                    <p>This is where the Settings feature will go.</p>
+                <div id="settings-wrapper">
+                    <div id="settings" class="tab-content">
+                        <h2>Settings</h2>
+                        <div class="setting-board">
+                            <p>Feel free to change these settings to meet your needs</p>
+                            <div class="setting-slots">
+                                <h3>Display Colors</h3>
+                                <p>Font: 
+                                    <input type="color" id="fontColor-s" value="#000000">
+                                </p>
+                                <p>Background: 
+                                    <input type="color" id="backgroundColor-s" value="#FFFFFF">
+                                </p>
+                                <p>Sidebar: 
+                                    <input type="color" id="sidebarColor-s" value="#F0F0F0">
+                                </p>
+                                <p>Sidebar Button Font: 
+                                    <input type="color" id="sidebarButtonFontColor-s" value="#FFFFFF">
+                                </p>
+                                <p>Sidebar Buttons Default: 
+                                    <input type="color" id="sidebarButtonColor-s" value="#34495E">
+                                </p>
+                                <p>Sidebar Buttons Selected: 
+                                    <input type="color" id="sidebarButtonCorrectColor-s" value="#2ECC71">
+                                </p>
+                            </div>
+                            <div class="setting-slots">
+                                <h3>UI Scaling</h3>
+                                <p>Main Application: 
+                                    <input type="range" id="ui-scale-slider-s" min="0.5" max="3" value="1" step="0.1">
+                                </p>
+                                <p>Sidebar: 
+                                    <input type="range" id="sidebar-scale-slider-s" min="0.5" max="3" value="1" step="0.1">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div id="tts-wrapper">
+                    <div id="tts" class="tab-content">
+                        <h2>Text-To-Speech</h2>
+                        <p>Type something and press speak!</p>
 
-                <div id="tts" class="tab-content">
-                    <h2>Text-To-Speech</h2>
-                    <p>Type something and press speak!</p>
+                        <textarea id="ttsText" , rows=3, placeholder="Enter text to speak."></textarea><br>
 
-                    <textarea id="ttsText" , rows=3, placeholder="Enter text to speak."></textarea><br>
+                        <label for="voiceSelect">Voice:</label>
+                        <select id="voiceSelect"></select><br><br>
 
-                    <label for="voiceSelect">Voice:</label>
-                    <select id="voiceSelect"></select><br><br>
-
-                    <button id="speakButton">Speak</button>
-                    <button id="stopButton">Stop</button>
+                        <button id="speakButton">Speak</button>
+                        <button id="stopButton">Stop</button>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -129,6 +164,7 @@
     <script src="javascripts/whiteboard.js"></script>
     <script src="javascripts/soundboard.js"></script>
     <script src="javascripts/TTS.js"></script>
+    <script src="javascripts/settings.js"></script>
 </body>
 
 </html>
