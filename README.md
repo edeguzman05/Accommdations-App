@@ -12,11 +12,14 @@ This project grabs voices from your OS system, as well as your browser. For the 
 ## Diagrams
 
 ### Use Case Diagram
-<img src="images/Use Case Diagram.png" style="max-width: 30vw; float: right; padding-right: 5em;
+<img src="images/UseCaseDiagram.png" style="max-width: 20vw; float: right; padding-right: 5em;">
 
 ### Activity Diagram
+<img src="images/ActivityDiagram.png" style="max-width: 20vw; float: right; padding-right: 5em;">
 
 ### UML CRC Diagram
+<img src="images/UMLDiagram(1).png" style="max-width: 20vw; float: right; padding-right: 5em;">
+<img src="images/UMLDiagram(2).png" style="max-width: 20vw; float: right; padding-right: 5em;">
 
 ## About the App
 The app is a way for SPED student to communicate, express and accommodate for whatever they may need, from soundboard, to TTS, to a tokenboard, to even a whiteboard. Users have the ability to create their own tokenboard stickers, have their own customizable soundboard, draw on a whiteboard that can be used for school work, and communicate 
