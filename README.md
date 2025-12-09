@@ -1,13 +1,20 @@
 # GPAA
 
-Welcome to our Special Education General Accommodation App! 
+Welcome to our Special Education General Accommodation App!
+
+## Group Members
+* Naudia De Arte
+* Emmanuel De Guzman
 
 ## Requirements
-This project grabs voices from your OS system, as well as your browser. For the best performance, you may want to use Google Chrome.
+This project grabs voices from your OS system, as well as your browser. For the best performance, you may want to use Google Chrome. Works with both Windows and Linux Distributions.
 
 ## Diagrams
 
 ### Use Case Diagram
+<img src="images/Use Case Diagram.png" style="max-width: 30vw; float: right; padding-right: 5em;
+
+### Activity Diagram
 
 ### UML CRC Diagram
 
